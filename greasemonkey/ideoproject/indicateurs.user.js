@@ -1,13 +1,9 @@
 
-// Ideoproject Indicateurs Textarea
-// version 0.1 BETA!
-// 2010-03-10
-//
 // ==UserScript==
 // @name          Ideoproject Indicateurs Textarea
 // @namespace     http://sqli.ideoproject.com/
 // @description   add indicateurs template to textareas
-// @include       *
+// @include       http://sqli.ideoproject.com/*
 // ==/UserScript==
 
 var textareas, textarea;

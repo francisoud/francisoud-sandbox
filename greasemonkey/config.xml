@@ -1,6 +1,0 @@
-<UserScriptConfig>
-	<Script filename="indicateurs.user.js" name="ideoproject" namespace="sqli.ideoproject.com" 
-    description="Indicateur ideoproject" enabled="true" basedir="ideoproject">
-		<Include>http://sqli.ideoproject.com/*</Include>
-	</Script>
-</UserScriptConfig>
