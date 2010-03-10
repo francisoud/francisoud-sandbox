@@ -3,7 +3,9 @@
 // @name          Ideoproject Indicateurs Textarea
 // @namespace     http://sqli.ideoproject.com/
 // @description   add indicateurs template to textareas
-// @include       http://sqli.ideoproject.com/*
+// @version       1.1
+// @include       http://*.ideoproject.com/*
+// @include       https://*.ideoproject.com/*
 // ==/UserScript==
 
 var textareas, textarea;
