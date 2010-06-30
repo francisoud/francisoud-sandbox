@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="frontal-jms-ivy" default="ivy:retrieve">
+	<description>All target related to ivy (install, dependencies etc...)</description>
+
+	<!-- Ivy patterns:
+		[organisation] 	the organisation name 
+		[module] 		the module name 
+		[branch] 		the branch name 
+		[revision] 		the revision name 
+		[artifact] 		the artifact name (or id) 
+		[type] 			the artifact type 
+		[ext] 			the artifact file extension 
+		[conf] 			the configuration name 
+		[originalname] 	the original artifact name (including the extension) 
+	 -->
+	
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<!-- ivy:retrieve                      -->
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<target name="ivy:retrieve" depends="ivy:install" description="retrieve dependencies with ivy">
+		<ivy:retrieve sync="true" pattern="${webapp.lib.dir}/[artifact]-[revision].[ext]" conf="runtime"/>
+		<ivy:retrieve sync="true" pattern="${lib.dir}/[conf]/[artifact]-[revision].[ext]" conf="compile"/>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<!-- ivy:install                       -->
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<target name="ivy:install">
+		<path id="ivy.lib.path">
+			<fileset file="lib/ivy-2.1.0.jar" />
+		</path>
+		<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+	</target>
+	
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<!-- ivy:maven                         -->
+	<!-- - - - - - - - - - - - - - - - - - -->
+    <target name="ivy:maven" description="convert a pom.xml to an ivy.xml file">
+        <ivy:convertpom pomFile="pom.xml" ivyFile="ivy-converted.xml" />
+    </target>
+</project>

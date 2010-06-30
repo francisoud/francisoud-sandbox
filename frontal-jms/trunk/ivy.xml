@@ -1,0 +1,16 @@
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ivy.xsd">
+	<!-- xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd" -->
+	<info organisation="com.blogspot.francisoud" module="frontal-jms" />
+	<configurations>
+		<conf name="runtime" description="necessary at runtime" />
+		<conf name="compile" description="necessary for compile" />
+	</configurations>
+	<dependencies>
+		<dependency org="org.apache.cxf" name="cxf-rt-frontend-jaxws" rev="2.2.3" conf="runtime->default" />
+		<dependency org="org.apache.cxf" name="cxf-rt-transports-http" rev="2.2.3" conf="runtime->default" />
+		<!-- Jetty is needed if you're are not using the CXFServlet
+		<dependency org="org.apache.cxf" name="cxf-rt-transports-http-jetty" rev="2.2.3" conf="runtime->default" />
+		 -->
+		<dependency org="javax.jms" name="jms" rev="1.1" conf="compile->default" />
+	</dependencies>
+</ivy-module>

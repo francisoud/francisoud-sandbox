@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="frontal-jms" default="dist">
+	<description>Build file from the frontal-jms project</description>
+	
+	<import file="build-ivy.xml"/>
+
+	<!-- local.build.properties is where you place you overide default properties with local setting -->
+	<property file="local.build.properties"/>
+
+	<!-- build.properties define default properties values -->
+	<property file="build.properties"/>
+	
+	<property name="lib.dir" location="lib" />
+	<property name="webapp.lib.dir" location="web/WEB-INF/lib" />
+
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<!-- init                              -->
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<target name="init">
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<!-- dist                              -->
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<target name="dist" depends="init" description="create final artifact">
+
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<!-- clean                             -->
+	<!-- - - - - - - - - - - - - - - - - - -->
+	<target name="clean">
+	</target>
+</project>
