@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<project name="radant-fragments-commons" default="dist"> 
+
+  <!-- - - - - - - - - - - - - - - - - - --> 
+  <!-- init                              -->
+  <!-- - - - - - - - - - - - - - - - - - -->
+  <target name="init">
+    <tstamp/>
+  	<mkdir dir="${classes.dir}"/>
+  	<mkdir dir="${dist.dir}"/>
+  </target>
+
+  <!-- - - - - - - - - - - - - - - - - - --> 
+  <!-- clean                             --> 
+  <!-- - - - - - - - - - - - - - - - - - --> 
+  <target name="clean" description="clean output dirs">
+    <delete dir="${classes.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target> 
+</project>
+ 

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<project name="radant-fragments-properties-files"> 
+	<!-- local.build.properties file not under svn - use it to overide properties localy -->
+	<property file="local.build.properties"/>
+	<!-- build.properties under svn - project default settings -->
+	<property file="build.properties"/>
+</project>
+

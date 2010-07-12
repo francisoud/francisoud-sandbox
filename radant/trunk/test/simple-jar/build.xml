@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<project name="simple-jar-project" default="dist">
+  <import>
+    <javaresource name="build-jar.xml" classpath="../../radant-0.1.jar"/>
+  </import>
+
+	<property name="version" value="1.0" />
+	<property name="manifest-vendor" value="myself" />
+  <!-- default is 1.6 -->
+  <property name="javac.target" value="1.5" />
+</project> 
+ 
