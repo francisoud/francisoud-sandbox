@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?> 
-<project name="maven-project" default="dist"> 
-	<import>
-    <javaresource name="build-maven.xml" classpath="../../radant-0.1.jar"/>
-	</import>
-</project> 
- 
