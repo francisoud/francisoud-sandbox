@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<!-- - - - - - - - - - - - - - - - -->
+	<!-- Apache Commons Configuration  -->
+	<!-- - - - - - - - - - - - - - - - -->
+	<bean id="configuration" class="org.apache.commons.configuration.CompositeConfiguration">
+		<constructor-arg>
+			<list>
+				<ref bean="systemConfiguration"/>
+				<ref bean="fileConfiguration"/>
+				<ref bean="classpathConfiguration"/>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="systemConfiguration" class="org.apache.commons.configuration.SystemConfiguration" />
+	<bean id="fileConfiguration" class="org.apache.commons.configuration.PropertiesConfiguration">
+	    <constructor-arg type="java.net.URL" value="file:/tmp/config.properties"/>
+	    <property name="reloadingStrategy" ref="reloadingStrategy"/>
+	</bean>
+	<bean id="classpathConfiguration" class="org.apache.commons.configuration.PropertiesConfiguration">
+	    <constructor-arg type="java.net.URL" value="classpath:config.properties"/>
+	</bean>
+	<bean id="reloadingStrategy" class="org.apache.commons.configuration.reloading.FileChangedReloadingStrategy" />
+
+
+
+	<!-- - - - - - - - - - - - - - - -->
+	<!-- Spring Property Placeholder -->
+	<!-- - - - - - - - - - - - - - - -->
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- Note: Properties defined in later files will override properties defined earlier files, in case of overlapping keys. Hence, make sure that the most specific files are the last ones in the given list of locations. -->
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+				<value>file:/tmp/config.properties</value>
+			</list>
+		</property>
+		<!-- 2 == http://static.springsource.org/spring/docs/2.5.5/api/constant-values.html#org.springframework.beans.factory.config.PropertyPlaceholderConfigurer.SYSTEM_PROPERTIES_MODE_OVERRIDE -->
+		<property name="systemPropertiesMode" value="2"/>
+	</bean>
+  
+	<!-- - - - - - - - - - - - - - - -->
+	<!-- MyApplication 				 -->
+	<!-- - - - - - - - - - - - - - - -->
+	<bean id="model" class="com.github.francisoud.sandbox.spring.properties.reloader.Model">
+		<property name="foo" value="${my.ip}" />
+	</bean>
+</beans>
