@@ -1,0 +1,4 @@
+= Versions
+=== 1.0.0 (Mon ?th, yyyy)
+* First official stable release
+
